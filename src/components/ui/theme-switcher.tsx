@@ -3,15 +3,17 @@
 import React, { useState, useEffect } from "react";
 
 export function ThemeSwitcher() {
-  const [themeMode, setThemeMode] = useState<"day" | "system" | "night">("system");
-
-  // Load saved preference from localStorage
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem("pipeline_theme_mode") as "day" | "system" | "night" | null;
-      if (saved) setThemeMode(saved);
-    } catch (e) {}
-  }, []);
+  const [themeMode, setThemeMode] = useState<"day" | "system" | "night">(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const saved = localStorage.getItem("pipeline_theme_mode") as "day" | "system" | "night" | null;
+        if (saved) return saved;
+      } catch {
+        // ignore
+      }
+    }
+    return "system";
+  });
 
   // Sync data-theme attribute on <html> and listen to OS changes
   useEffect(() => {
@@ -30,7 +32,9 @@ export function ThemeSwitcher() {
       document.documentElement.setAttribute("data-theme", resolved);
       try {
         localStorage.setItem("pipeline_theme_mode", themeMode);
-      } catch (e) {}
+      } catch {
+        // ignore
+      }
     };
 
     updateTheme();

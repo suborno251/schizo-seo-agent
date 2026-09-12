@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { ThemeSwitcher } from "@/components/ui/theme-switcher";
 
 export function Sidebar() {
@@ -6,17 +7,19 @@ export function Sidebar() {
     <aside className="sidebar">
       <div>
         {/* App Logo & Version */}
-        <div className="brand-header">
-          <div className="brand-icon-box">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4 17L10 5H14L20 17H16.5L15 13.8H9L7.5 17H4ZM9.8 11.8H14.2L12 7.2L9.8 11.8Z" fill="#0066ff" />
-            </svg>
+        <Link href="/" style={{ textDecoration: "none", display: "block" }}>
+          <div className="brand-header">
+            <div className="brand-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 17L10 5H14L20 17H16.5L15 13.8H9L7.5 17H4ZM9.8 11.8H14.2L12 7.2L9.8 11.8Z" fill="#0066ff" />
+              </svg>
+            </div>
+            <div className="brand-meta">
+              <h1>AI Pipeline</h1>
+              <span>V2.4 Active</span>
+            </div>
           </div>
-          <div className="brand-meta">
-            <h1>AI Pipeline</h1>
-            <span>V2.4 Active</span>
-          </div>
-        </div>
+        </Link>
 
         {/* New Run Action */}
         <button className="btn-new-run" id="btnNewRun">

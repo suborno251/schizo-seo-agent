@@ -14,6 +14,37 @@ Most "compare two AI models" projects just show two outputs side by side. This p
 
 The UI streams each stage as it completes (draft → critique → final) rather than waiting for the whole pipeline to finish, and shows a diff between the original draft and the reconciled output so the user can see exactly what the critique step changed.
 
+## Production Use Cases
+
+Single-prompt LLMs frequently suffer from sycophantic validation (validating their own hallucinations) and superficial fluff ("In conclusion...", vague generalities). By pitting Gemini and DeepSeek against each other with a strict rubric, this architecture is designed for:
+
+1. **High-Conviction Technical SEO & Developer Content**
+   - Eliminates generic filler and unsubstantiated claims that hurt reader retention and bounce rates.
+   - DeepSeek audits drafts to strip clichés, verify assertions, and ensure actionable density.
+   - *Example: "Kubernetes Ingress Controllers vs. Gateway API: Architecture & Migration"*
+
+2. **Developer Documentation & "How-To" Guides**
+   - DeepSeek acts as a hardened Principal Engineer checking for framework deprecations, syntax errors, and missing edge cases.
+   - Produces clean, copy-ready Markdown for documentation engines (Docusaurus, Mintlify, Nextra, GitBook).
+
+3. **Engineering RFCs & Architecture Decision Records (ADRs)**
+   - Gemini drafts system proposals from high-level seed requirements.
+   - DeepSeek plays devil's advocate, identifying single points of failure, scalability bottlenecks, and consistency trade-offs before team review.
+
+4. **Automated CI/CD Documentation Audits (via `/api/generate`)**
+   - Integrates into GitHub Actions or repository webhooks when new `.md`/`.mdx` PRs are submitted.
+   - Automatically runs adversarial critique passes and posts line-level feedback directly onto pull requests.
+
+5. **Headless CMS & Staged Publishing Automation**
+   - Converts raw release notes, GitHub diffs, or product specs into structured technical articles.
+   - Pushes reconciled content directly to CMS platforms (e.g., WordPress REST API, Ghost, Hashnode).
+
+### Supported Interfaces
+
+- **Interactive Workspace (`/`)**: Clean web UI with topic chips, expandable rubric editor, live SSE stage streaming, and word-level diff viewer.
+- **Streaming Endpoint (`/api/stream`)**: Server-Sent Events (SSE) route delivering live updates (`stage_complete`, `status`, `done`) to client applications.
+- **Headless Endpoint (`/api/generate`)**: Standard JSON `POST` endpoint for CLI tools, cron jobs, and CI/CD pipelines.
+
 ## Tech Stack
 
 - **Next.js (App Router)** — API routes + streaming responses

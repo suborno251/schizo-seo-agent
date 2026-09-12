@@ -3,21 +3,23 @@
 import React, { useState } from "react";
 
 interface PromptInputProps {
-  onGenerate?: (prompt: string) => void;
+  onGenerate?: (prompt: string) => Promise<void> | void;
 }
 
 export function PromptInput({ onGenerate }: PromptInputProps) {
   const [prompt, setPrompt] = useState("");
   const [generating, setGenerating] = useState(false);
 
-  const handleGenerateClick = () => {
+  const handleGenerateClick = async () => {
+    if (!prompt.trim()) return;
     setGenerating(true);
-    if (onGenerate) {
-      onGenerate(prompt);
-    }
-    setTimeout(() => {
+    try {
+      if (onGenerate) {
+        await onGenerate(prompt.trim());
+      }
+    } finally {
       setGenerating(false);
-    }, 1200);
+    }
   };
 
   return (
