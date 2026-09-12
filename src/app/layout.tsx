@@ -15,9 +15,13 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AI Content Pipeline — Gemini × DeepSeek",
+  title: "AI Content Pipeline — Multi-Agent Consensus",
   description:
-    "Multi-agent SEO content generator: Gemini drafts, DeepSeek critiques, Gemini reconciles — with live revision diffs.",
+    "Multi-agent content orchestration: Configurable drafting, adversarial critique, and publication-ready consensus reconciliation.",
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
 };
 
 export default function RootLayout({

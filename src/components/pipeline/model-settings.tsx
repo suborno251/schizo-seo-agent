@@ -88,7 +88,7 @@ export function ModelSettings({ config, onChange }: ModelSettingsProps) {
 
   return (
     <div style={{ marginBottom: "20px" }}>
-      <div style={{ display: "flex", justifyContent: "flex-end" }}>
+      <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "12px" }}>
         <button
           type="button"
           className="model-settings-btn"

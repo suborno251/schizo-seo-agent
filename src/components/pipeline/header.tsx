@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { PipelineConfig } from "@/features/pipeline/types/pipeline";
 
 interface HeaderProps {
@@ -14,30 +15,14 @@ export function Header({ config }: HeaderProps) {
     <header className="app-header">
       <div className="brand-title-group">
         <div className="brand-logo-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path
-              d="M4 6L14 6L20 12L14 18L4 18L10 12L4 6Z"
-              fill="url(#brand-grad)"
-            />
-            <path
-              d="M10 6L16 6L20 10L16 14L10 14L14 10L10 6Z"
-              fill="#ffffff"
-              fillOpacity="0.95"
-            />
-            <defs>
-              <linearGradient
-                id="brand-grad"
-                x1="4"
-                y1="6"
-                x2="20"
-                y2="18"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop stopColor="#38bdf8" />
-                <stop offset="1" stopColor="#0284c7" />
-              </linearGradient>
-            </defs>
-          </svg>
+          <Image
+            src="/logo.png"
+            alt="Consensus Pipeline Logo"
+            width={36}
+            height={36}
+            priority
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          />
         </div>
         <div>
           <h1 className="brand-name">
