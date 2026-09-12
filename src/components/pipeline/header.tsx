@@ -17,7 +17,7 @@ export function Header({ config }: HeaderProps) {
         <div className="brand-logo-icon">
           <Image
             src="/logo.png"
-            alt="Consensus Pipeline Logo"
+            alt="No-Yes Man Logo"
             width={36}
             height={36}
             priority
@@ -26,9 +26,9 @@ export function Header({ config }: HeaderProps) {
         </div>
         <div>
           <h1 className="brand-name">
-            AI Content Pipeline
+            No-Yes Man
             <span style={{ fontSize: "14px", fontWeight: 400, color: "#64748b" }}>
-              Multi-Agent Consensus
+              Adversarial Consensus
             </span>
           </h1>
           <p className="brand-desc">

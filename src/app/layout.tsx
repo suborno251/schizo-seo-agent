@@ -15,9 +15,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AI Content Pipeline — Multi-Agent Consensus",
+  title: "No-Yes Man — Multi-Agent Consensus Pipeline",
   description:
-    "Multi-agent content orchestration: Configurable drafting, adversarial critique, and publication-ready consensus reconciliation.",
+    "Adversarial multi-agent content orchestration: Configurable drafting, adversarial critique, and publication-ready consensus reconciliation.",
   icons: {
     icon: "/logo.png",
     apple: "/logo.png",

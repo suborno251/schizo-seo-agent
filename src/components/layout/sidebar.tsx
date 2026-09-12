@@ -15,7 +15,7 @@ export function Sidebar() {
               </svg>
             </div>
             <div className="brand-meta">
-              <h1>AI Pipeline</h1>
+              <h1>No-Yes Man</h1>
               <span>V2.4 Active</span>
             </div>
           </div>
